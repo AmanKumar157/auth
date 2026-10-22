@@ -39,6 +39,7 @@ function generateToken(){
         password:password
     })
     res.json({message: 'user signed up successfully'})
+    console.log(users);
 
   })
 
@@ -72,6 +73,7 @@ function generateToken(){
     } else {
         res.json({message: 'invalid username or password'})
     }
+    console.log(users);    
 
   })
 
