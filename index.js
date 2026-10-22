@@ -77,6 +77,25 @@ function generateToken(){
 
   })
 
+  app.get('/me',(req,res)=>{
+    const token= req.headers.token;
+    let founduser= null;
+    for(let i=0; i<users.length; i++){
+        if(users[i].token===token){
+            founduser = users[i];
+        }
+    }
+    if(founduser){
+        res.json({
+            username: founduser.username,
+            password: founduser.password
+        })
+    } else {
+        res.json({message: 'invalid token'})
+    }
+
+  })
+
   app.listen(3000,()=>{
     console.log('server is running on port 3000');
   } )
